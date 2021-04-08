@@ -10,9 +10,13 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 namespace App\Controller;
+use App\Logic\AuthLogic;
+use App\Model\VUser;
 use App\Request\Auth\LoginRequest;
 use http\Client\Request;
 use Hyperf\HttpServer\Contract\RequestInterface;
+use Hyperf\Redis\Redis;
+use Hyperf\Utils\ApplicationContext;
 use Phper666\JWTAuth\JWT;
 use Psr\Http\Message\ResponseInterface;
 use Psr\SimpleCache\InvalidArgumentException;
@@ -31,19 +35,23 @@ class AuthController extends AbstractController
     {
         $username = $this->request->input('username');
         $password = $this->request->input('password');
-        
-        if ($username && $password) {
-            //这里应为没有做auth的登录认证系统，为了展示随便写点数据
-            $userData = [
-                'uid' => 1,
-                'username' => 'xx',
-            ];
-            //获取Token
-            $token = (string)$jwt->getToken($userData);
-            //返回响应的json数据
-            return $this->response->json(['code' => 0, 'msg' => '获取token成功', 'data' => ['token' => $token]]);
-        }
-        return $this->response->json(['code' => 0, 'msg' => '登录失败', 'data' => []]);
+        $password = $this->request->input('code');
+        //处理登录逻辑
+        $authRes = AuthLogic::Login($username,$password);
+        //生成jwt token
+        $token = $jwt->getToken($authRes);
+        $container = ApplicationContext::getContainer();
+        $redis = $container->get(Redis::class);
+        //reids存储凭证
+        $redis->set('v_user:'.$username,$token);
+        $redis->set($token,$authRes);
+        $data = ["token"=>$token];
+        return $this->success('登录成功', $data);
+    }
+
+    public function register()
+    {
+
     }
 
     # http头部必须携带token才能访问的路由

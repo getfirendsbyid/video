@@ -35,4 +35,24 @@ abstract class AbstractController
      * @var ResponseInterface
      */
     protected $response;
+
+    public  function error(int $code,string $msg,$data=[]): \Psr\Http\Message\ResponseInterface
+    {
+        $json = [
+            'code'=>$code,
+            'msg'=>$msg,
+            'data'=>$data
+        ];
+        return $this->response->json($json);
+    }
+
+    public  function success(string $msg,$data=[]): \Psr\Http\Message\ResponseInterface
+    {
+        $json = [
+            'code'=>200,
+            'msg'=>$msg,
+            'data'=>$data
+        ];
+        return $this->response->json($json);
+    }
 }

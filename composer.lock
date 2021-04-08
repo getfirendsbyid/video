@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "10f487a073c5a3270a873d6aa12c49f8",
+    "content-hash": "dd2e526715b53f8293d3f46ce9581a20",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1779,6 +1779,71 @@
                 "source": "https://github.com/hyperf/hyperf"
             },
             "time": "2020-12-27T06:12:45+00:00"
+        },
+        {
+            "name": "hyperf/model-cache",
+            "version": "v2.1.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf/model-cache.git",
+                "reference": "90f38deb273a6b043cf21a842079c836e21f6e0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf/model-cache/zipball/90f38deb273a6b043cf21a842079c836e21f6e0c",
+                "reference": "90f38deb273a6b043cf21a842079c836e21f6e0c",
+                "shasum": ""
+            },
+            "require": {
+                "hyperf/contract": "~2.1.0",
+                "hyperf/db-connection": "~2.1.0",
+                "hyperf/utils": "~2.1.0",
+                "php": ">=7.2",
+                "psr/container": "^1.0",
+                "psr/simple-cache": "^1.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.9",
+                "hyperf/event": "~2.1.0",
+                "malukenho/docheader": "^0.1.6",
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^9.4"
+            },
+            "suggest": {
+                "hyperf/event": "Required to use DeleteCacheListener."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                },
+                "hyperf": {
+                    "config": "Hyperf\\ModelCache\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hyperf\\ModelCache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A model cache component for hyperf.",
+            "homepage": "https://hyperf.io",
+            "keywords": [
+                "hyperf",
+                "model-cache",
+                "php"
+            ],
+            "support": {
+                "docs": "https://hyperf.wiki",
+                "issues": "https://github.com/hyperf/hyperf/issues",
+                "pull-request": "https://github.com/hyperf/hyperf/pulls",
+                "source": "https://github.com/hyperf/hyperf"
+            },
+            "time": "2021-04-02T11:24:08+00:00"
         },
         {
             "name": "hyperf/model-listener",

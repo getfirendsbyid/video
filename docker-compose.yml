@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.3'
 services:
   hyperf:
     image: $REGISTRY_URL/$PROJECT_NAME:test
@@ -18,7 +18,7 @@ services:
         delay: 5s
         order: start-first
     networks:
-      - hyperf_net
+      - default
     configs:
       - source: hyperf_v1.0
         target: /opt/www/.env

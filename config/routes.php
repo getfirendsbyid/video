@@ -19,6 +19,7 @@ Router::get('/favicon.ico', function () {
     return '';
 });
 Router::post('/login', [AuthController::class, 'login']);
+Router::post('/list', [AuthController::class, 'list']);
 
 
 //// 该 Group 下的所有路由都将应用配置的中间件

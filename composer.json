@@ -23,8 +23,9 @@
         "hyperf/http-server": "~2.1.0",
         "hyperf/logger": "~2.1.0",
         "hyperf/memory": "~2.1.0",
+        "hyperf/model-cache": "^2.1",
         "hyperf/process": "~2.1.0",
-        "hyperf/redis": "~2.1.0",
+        "hyperf/redis": "^2.1",
         "hyperf/validation": "^2.1",
         "phper666/jwt-auth": "^3.0"
     },
