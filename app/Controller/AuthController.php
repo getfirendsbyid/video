@@ -11,12 +11,11 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 use App\Logic\AuthLogic;
-use App\Model\VUser;
 use App\Request\Auth\LoginRequest;
-use http\Client\Request;
-use Hyperf\HttpServer\Contract\RequestInterface;
+use App\Request\Auth\RegisterRequest;
 use Hyperf\Redis\Redis;
 use Hyperf\Utils\ApplicationContext;
+use HyperfExt\Captcha\CaptchaFactory;
 use Phper666\JWTAuth\JWT;
 use Psr\Http\Message\ResponseInterface;
 use Psr\SimpleCache\InvalidArgumentException;
@@ -24,6 +23,13 @@ use Psr\SimpleCache\InvalidArgumentException;
 
 class AuthController extends AbstractController
 {
+
+//    private  $captchaFactory;
+//    public function __construct()
+//    {
+//        $this->captchaFactory = ApplicationContext::getContainer()->get(CaptchaFactory::class);
+//    }
+
     # 模拟登录,获取token
     /**
      * @param JWT $jwt
@@ -33,9 +39,17 @@ class AuthController extends AbstractController
      */
     public function login(JWT $jwt,LoginRequest $request): ResponseInterface
     {
+        $captchaFactory = ApplicationContext::getContainer()->get(CaptchaFactory::class);
         $username = $this->request->input('username');
         $password = $this->request->input('password');
-        $password = $this->request->input('code');
+        $code = $this->request->input('code');
+        $codeKey = $this->request->input('codekey');
+        // 验证
+
+        $codeValidator = $captchaFactory->validate($codeKey, $code);
+        if (!$codeValidator){
+            return $this->error(400,"验证码输入错误");
+        }
         //处理登录逻辑
         $authRes = AuthLogic::Login($username,$password);
         //生成jwt token
@@ -49,9 +63,25 @@ class AuthController extends AbstractController
         return $this->success('登录成功', $data);
     }
 
-    public function register()
+    public function register(RegisterRequest $request)
     {
 
+    }
+
+    /**
+     * @return ResponseInterface
+     * 获取验证码
+     */
+    public function captcha(): ResponseInterface
+    {
+        $captchaFactory = ApplicationContext::getContainer()->get(CaptchaFactory::class);
+        $captcha = $captchaFactory->create();
+        $response = [
+            'key' => $captcha->getKey(),
+            'blob' => $captcha->getBlob()->toDataUrl(),
+            'ttl' => $captcha->getTtl(),
+        ];
+        return $this->success("验证码获取成功",$response);
     }
 
     # http头部必须携带token才能访问的路由

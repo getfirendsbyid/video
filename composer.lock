@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd2e526715b53f8293d3f46ce9581a20",
+    "content-hash": "264a9a275bbe2a8f40528e73f1ab5ca6",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -742,6 +742,149 @@
                 "source": "https://github.com/guzzle/psr7/tree/1.8.1"
             },
             "time": "2021-03-21T16:25:00+00:00"
+        },
+        {
+            "name": "hyperf-ext/captcha",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf-ext/captcha.git",
+                "reference": "5b227c8fddd2b5a3abe6cb0e4c7c16216eddaf50"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf-ext/captcha/zipball/5b227c8fddd2b5a3abe6cb0e4c7c16216eddaf50",
+                "reference": "5b227c8fddd2b5a3abe6cb0e4c7c16216eddaf50",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "ext-imagick": "*",
+                "ext-swoole": ">=4.5",
+                "hyperf-ext/encryption": "~2.1.0",
+                "hyperf/cache": "~2.1.0",
+                "hyperf/di": "~2.1.0",
+                "hyperf/framework": "~2.1.0",
+                "hyperf/validation": "~2.1.0",
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.14",
+                "hyperf/testing": "~2.1.0",
+                "phpstan/phpstan": "^0.12",
+                "swoole/ide-helper": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "hyperf": {
+                    "config": "HyperfExt\\Captcha\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "HyperfExt\\Captcha\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eric Zhu",
+                    "email": "eric@zhu.email"
+                }
+            ],
+            "description": "The Hyperf CAPTCHA package.",
+            "keywords": [
+                "captcha",
+                "hyperf",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/hyperf-ext/captcha/issues",
+                "source": "https://github.com/hyperf-ext/captcha/tree/v2.1.0"
+            },
+            "time": "2020-12-30T00:38:49+00:00"
+        },
+        {
+            "name": "hyperf-ext/encryption",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf-ext/encryption.git",
+                "reference": "c7bd13c5a58d2428bd2b7a84bde5ee6bf9b6a012"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf-ext/encryption/zipball/c7bd13c5a58d2428bd2b7a84bde5ee6bf9b6a012",
+                "reference": "c7bd13c5a58d2428bd2b7a84bde5ee6bf9b6a012",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "ext-openssl": "*",
+                "ext-swoole": ">=4.5",
+                "hyperf/command": "~2.1.0",
+                "hyperf/di": "~2.1.0",
+                "hyperf/framework": "~2.1.0",
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.14",
+                "hyperf/testing": "~2.1.0",
+                "phpstan/phpstan": "^0.12",
+                "swoole/ide-helper": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "hyperf": {
+                    "config": "HyperfExt\\Encryption\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "HyperfExt\\Encryption\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eric Zhu",
+                    "email": "eric@zhu.email"
+                },
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The Hyperf Encryption package.",
+            "keywords": [
+                "encryption",
+                "hyperf",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/hyperf-ext/encryption/issues",
+                "source": "https://github.com/hyperf-ext/encryption/tree/v2.1.0"
+            },
+            "time": "2020-12-30T00:34:36+00:00"
         },
         {
             "name": "hyperf/cache",
