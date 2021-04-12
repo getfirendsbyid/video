@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 use App\Logic\AuthLogic;
+use App\Model\VUser;
 use App\Request\Auth\LoginRequest;
 use App\Request\Auth\RegisterRequest;
 use Hyperf\Redis\Redis;
@@ -45,7 +46,6 @@ class AuthController extends AbstractController
         $code = $this->request->input('code');
         $codeKey = $this->request->input('codekey');
         // 验证
-
         $codeValidator = $captchaFactory->validate($codeKey, $code);
         if (!$codeValidator){
             return $this->error(400,"验证码输入错误");
@@ -65,7 +65,35 @@ class AuthController extends AbstractController
 
     public function register(RegisterRequest $request)
     {
-
+        $username = $this->request->input('username');
+        $password = $this->request->input('password');
+        $repassword = $this->request->input('repassword');
+//        $code = $this->request->input('code');
+//        $codeKey = $this->request->input('codekey');
+//        // 验证
+//        $captchaFactory = ApplicationContext::getContainer()->get(CaptchaFactory::class);
+//        $codeValidator = $captchaFactory->validate($codeKey, $code);
+//        if (!$codeValidator){
+//            return $this->error(400,"验证码输入错误");
+//        }
+        if ($repassword!=$password){
+            return $this->error(400,"两次密码不一致");
+        }
+        //验证是否已经被注册
+        $count = VUser::where(['username'=>$username])->count();
+        if ($count>0){
+            return $this->error(400,"该用户名已经被使用");
+        }
+        $data = [
+            "username"=>$username,
+            "password"=>password_hash($password,PASSWORD_ARGON2I),
+            "status"=>1,
+            "createdAt"=>date("Y-m-d H:i:s"),
+            "updatedAt"=>date("Y-m-d H:i:s"),
+            "avatar"=>"/img/avatar.jpg",
+        ];
+        VUser::insert($data);
+        return $this->success("注册成功！");
     }
 
     /**
@@ -84,9 +112,4 @@ class AuthController extends AbstractController
         return $this->success("验证码获取成功",$response);
     }
 
-    # http头部必须携带token才能访问的路由
-    public function getData(): ResponseInterface
-    {
-        return $this->response->json(['code' => 0, 'msg' => 'success', 'data' => ['a' => 1]]);
-    }
 }

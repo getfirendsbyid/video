@@ -39,7 +39,6 @@ class LoginRequest extends FormRequest
             'code.required'=>'code不能为空',
             'code.max'=>'code长度不能超过4',
             'codekey.required'=>'codekey不能为空',
-
         ];
     }
 }

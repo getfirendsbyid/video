@@ -38,7 +38,9 @@ class RegisterRequest extends FormRequest
             'code.required'  => 'code不能为空',
             'username.max'=>'username最大值不能超过12',
             'password.max'=>'password最大值不能超过12',
-            'code.max'=>'code最大值不能超过12'
+            'code.max'=>'code最大值不能超过12',
+            'repassword.required'=>'重复密码不能为空',
+            'repassword.max'=>'重复密码长度不能超过12',
         ];
     }
 }

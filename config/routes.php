@@ -19,6 +19,7 @@ Router::get('/favicon.ico', function () {
     return '';
 });
 Router::post('/login', [AuthController::class, 'login']);
+Router::post('/register', [AuthController::class, 'register']);
 Router::post('/list', [AuthController::class, 'list']);
 Router::get('/captcha', [AuthController::class, 'captcha']);//获取验证码
 
