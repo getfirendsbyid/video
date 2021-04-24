@@ -25,10 +25,12 @@
         "hyperf/logger": "~2.1.0",
         "hyperf/memory": "~2.1.0",
         "hyperf/model-cache": "^2.1",
-        "hyperf/process": "~2.1.0",
+        "hyperf/process": "^2.1",
         "hyperf/redis": "^2.1",
+        "hyperf/utils": "^2.1",
         "hyperf/validation": "^2.1",
-        "phper666/jwt-auth": "^3.0"
+        "phper666/jwt-auth": "^3.0",
+        "yurunsoft/yurun-http": "^4.3.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.14",
