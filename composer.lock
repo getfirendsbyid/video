@@ -755,13 +755,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/hyperf-ext/captcha/zipball/5b227c8fddd2b5a3abe6cb0e4c7c16216eddaf50",
                 "reference": "5b227c8fddd2b5a3abe6cb0e4c7c16216eddaf50",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "ext-fileinfo": "*",
@@ -825,13 +819,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/hyperf-ext/encryption/zipball/c7bd13c5a58d2428bd2b7a84bde5ee6bf9b6a012",
                 "reference": "c7bd13c5a58d2428bd2b7a84bde5ee6bf9b6a012",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "ext-json": "*",
@@ -1262,16 +1250,16 @@
         },
         {
             "name": "hyperf/di",
-            "version": "v2.1.11",
+            "version": "v2.1.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hyperf/di.git",
-                "reference": "efb3c931855730905625291884cd99dc9e46e819"
+                "reference": "ec834526068baa03f8c2885ee88ff975f728a443"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hyperf/di/zipball/efb3c931855730905625291884cd99dc9e46e819",
-                "reference": "efb3c931855730905625291884cd99dc9e46e819",
+                "url": "https://api.github.com/repos/hyperf/di/zipball/ec834526068baa03f8c2885ee88ff975f728a443",
+                "reference": "ec834526068baa03f8c2885ee88ff975f728a443",
                 "shasum": ""
             },
             "require": {
@@ -1320,7 +1308,7 @@
                 "pull-request": "https://github.com/hyperf/hyperf/pulls",
                 "source": "https://github.com/hyperf/hyperf"
             },
-            "time": "2021-03-19T06:50:04+00:00"
+            "time": "2021-04-09T10:00:23+00:00"
         },
         {
             "name": "hyperf/dispatcher",
@@ -2371,16 +2359,16 @@
         },
         {
             "name": "hyperf/utils",
-            "version": "v2.1.13",
+            "version": "v2.1.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hyperf/utils.git",
-                "reference": "d1db8392599e06973939befd32eb2c0b956df350"
+                "reference": "466d339af938ab334b2a228923236afe9f49e63e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hyperf/utils/zipball/d1db8392599e06973939befd32eb2c0b956df350",
-                "reference": "d1db8392599e06973939befd32eb2c0b956df350",
+                "url": "https://api.github.com/repos/hyperf/utils/zipball/466d339af938ab334b2a228923236afe9f49e63e",
+                "reference": "466d339af938ab334b2a228923236afe9f49e63e",
                 "shasum": ""
             },
             "require": {
@@ -2440,7 +2428,7 @@
                 "pull-request": "https://github.com/hyperf/hyperf/pulls",
                 "source": "https://github.com/hyperf/hyperf"
             },
-            "time": "2021-04-04T02:15:05+00:00"
+            "time": "2021-04-09T03:45:20+00:00"
         },
         {
             "name": "hyperf/validation",
@@ -7523,16 +7511,16 @@
         },
         {
             "name": "swoole/ide-helper",
-            "version": "4.6.4",
+            "version": "4.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swoole/ide-helper.git",
-                "reference": "7e5c51ce7cc8c03ffb836aad31f3f27cd871aa96"
+                "reference": "11bc5af94512ed3bfaa31a97302f78d4074dae22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swoole/ide-helper/zipball/7e5c51ce7cc8c03ffb836aad31f3f27cd871aa96",
-                "reference": "7e5c51ce7cc8c03ffb836aad31f3f27cd871aa96",
+                "url": "https://api.github.com/repos/swoole/ide-helper/zipball/11bc5af94512ed3bfaa31a97302f78d4074dae22",
+                "reference": "11bc5af94512ed3bfaa31a97302f78d4074dae22",
                 "shasum": ""
             },
             "require-dev": {
@@ -7555,9 +7543,9 @@
             "description": "IDE help files for Swoole.",
             "support": {
                 "issues": "https://github.com/swoole/ide-helper/issues",
-                "source": "https://github.com/swoole/ide-helper/tree/4.6.4"
+                "source": "https://github.com/swoole/ide-helper/tree/4.6.5"
             },
-            "time": "2021-03-11T19:44:34+00:00"
+            "time": "2021-04-09T15:40:39+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",

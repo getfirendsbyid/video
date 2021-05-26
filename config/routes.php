@@ -23,6 +23,7 @@ Router::post('/register', [AuthController::class, 'register']);
 Router::post('/list', [AuthController::class, 'list']);
 Router::get('/captcha', [AuthController::class, 'captcha']);//获取验证码
 
+Router::get('/test', [AuthController::class, 'test']);//获取验证码
 
 //// 该 Group 下的所有路由都将应用配置的中间件
 //Router::addGroup('/v2', function () {

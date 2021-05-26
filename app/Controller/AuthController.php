@@ -14,6 +14,7 @@ use App\Logic\AuthLogic;
 use App\Model\VUser;
 use App\Request\Auth\LoginRequest;
 use App\Request\Auth\RegisterRequest;
+use http\Client;
 use Hyperf\Redis\Redis;
 use Hyperf\Utils\ApplicationContext;
 use HyperfExt\Captcha\CaptchaFactory;
@@ -110,6 +111,18 @@ class AuthController extends AbstractController
             'ttl' => $captcha->getTtl(),
         ];
         return $this->success("验证码获取成功",$response);
+    }
+
+
+    public function test(){
+        $statr = time();
+        $url = "https://www.uviewui.com/components/swiper.html";
+        $client = new \GuzzleHttp\Client();
+        for ($i=0;$i<500;$i++){
+            $res = $client->request("get",$url);
+            echo $i;
+        }
+        echo "结束".(time()-$statr);
     }
 
 }
