@@ -5,19 +5,15 @@ namespace App\Model;
 
 use Hyperf\DbConnection\Model\Model;
 /**
- * @property int $id 
- * @property string $animeConllentName 
- * @property string $createdAt 
- * @property string $updatedAt 
  */
-class VAnimeConllent extends Model
+class AnimeSeason extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'v_anime_conllent';
+    protected $table = 'anime_season';
     /**
      * The attributes that are mass assignable.
      *
@@ -29,5 +25,5 @@ class VAnimeConllent extends Model
      *
      * @var array
      */
-    protected $casts = ['id' => 'integer'];
+    protected $casts = [];
 }
