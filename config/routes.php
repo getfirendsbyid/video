@@ -13,6 +13,7 @@ use Hyperf\HttpServer\Router\Router;
 use App\Controller\AuthController;
 use App\Controller\IndexController;
 use App\Controller\ClassifyController;
+use App\Controller\TimeController;
 use App\Middleware\Auth\JwtMiddleware;
 
 Router::addRoute(['GET', 'POST', 'HEAD'], '/', 'App\Controller\IndexController@index');
@@ -31,6 +32,8 @@ Router::post('/home/videoList', [IndexController::class, 'videoList']);
 
 
 Router::post('/classify/getTag', [ClassifyController::class, 'getTag']);
+
+Router::post('/time/getTimeList', [TimeController::class, 'timeList']);
 
 
 

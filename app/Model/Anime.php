@@ -26,4 +26,11 @@ class Anime extends Model
      * @var array
      */
     protected $casts = [];
+
+    public static function timeList($where){
+
+       return Anime::select("latestName","id","name","newUpdateAt","weekday","coverSmallImg")
+            ->where($where)
+            ->get();
+    }
 }
