@@ -11,10 +11,14 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use App\Spider\Downloader\FiveDM\Anime;
+
 class IndexController extends AbstractController
 {
     public function index()
     {
+
+        Anime::get();
 
     }
 }
