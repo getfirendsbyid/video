@@ -29,8 +29,8 @@ class Anime extends Model
 
     public static function videoList($page,$pageSize,$where): \Hyperf\Utils\Collection
     {
-        return Anime::leftJoin("rel_anime_tag","anime.id","=","rel_anime_tag.animeId")
-            ->leftJoin("tag","tag.id","=","rel_anime_tag.tagId")
+        return Anime::leftJoin("rel_anime_tag","anime.id","=","rel_anime_tag.anime_id")
+            ->leftJoin("anime_tag","anime_tag.id","=","rel_anime_tag.tag_id")
             ->where($where)
             ->take($page)
             ->limit($page*$pageSize)
@@ -42,5 +42,12 @@ class Anime extends Model
        return Anime::select("latestName","id","name","newUpdateAt","weekday","coverSmallImg")
             ->where($where)
             ->get();
+    }
+
+    public static function getOne($animeId){
+      return Anime::leftJoin("rel_anime_tag","anime.id","=","rel_anime_tag.anime_id")
+            ->leftJoin("anime_tag","anime_tag.id","=","rel_anime_tag.tag_id")
+            ->where("anime.id","=",$animeId)
+            ->first();
     }
 }

@@ -8,6 +8,8 @@ use Hyperf\DbConnection\Model\Model;
  */
 class AnimeTag extends Model
 {
+    public $timestamps = false;
+
     /**
      * The table associated with the model.
      *
@@ -19,7 +21,7 @@ class AnimeTag extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['tag','createdAt','updatedAt'];
     /**
      * The attributes that should be cast to native types.
      *

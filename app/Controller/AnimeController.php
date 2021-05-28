@@ -20,7 +20,8 @@ use Hyperf\HttpServer\Contract\RequestInterface;
 class AnimeController extends BaseController
 {
     public function info(RequestInterface  $request){
-        $request->input("id");
-        $res = Anime::
+        $id = $request->input("id");
+        $res = Anime::getOne($id);
+        return $this->success("请求成功",$res);
     }
 }
