@@ -1,6 +1,6 @@
 <?php
 namespace App\Logic;
-use App\Model\VUser;
+use App\Model\Users;
 use Hyperf\Redis\Redis;
 use Hyperf\Utils\ApplicationContext;
 use Phper666\JWTAuth\JWT;
@@ -18,7 +18,7 @@ class AuthLogic {
         $hashPassword = password_hash($password,PASSWORD_ARGON2I);
         $where = ['username' => $username];
         $select = ['username','email','status','avatar','phone'];
-        $user = VUser::where($where)->select($select)->first();
+        $user = Users::where($where)->select($select)->first();
         if (empty($user)){
             throw new \LogicException("用户名不存在");
         }

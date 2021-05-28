@@ -11,10 +11,9 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 use App\Logic\AuthLogic;
-use App\Model\VUser;
+use App\Model\Users;
 use App\Request\Auth\LoginRequest;
 use App\Request\Auth\RegisterRequest;
-use http\Client;
 use Hyperf\Redis\Redis;
 use Hyperf\Utils\ApplicationContext;
 use HyperfExt\Captcha\CaptchaFactory;
@@ -81,7 +80,7 @@ class AuthController extends BaseController
             return $this->error(400,"两次密码不一致");
         }
         //验证是否已经被注册
-        $count = VUser::where(['username'=>$username])->count();
+        $count = Users::where(['username'=>$username])->count();
         if ($count>0){
             return $this->error(400,"该用户名已经被使用");
         }
@@ -93,7 +92,7 @@ class AuthController extends BaseController
             "updatedAt"=>date("Y-m-d H:i:s"),
             "avatar"=>"/img/avatar.jpg",
         ];
-        VUser::insert($data);
+        Users::insert($data);
         return $this->success("注册成功！");
     }
 

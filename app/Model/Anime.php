@@ -36,4 +36,11 @@ class Anime extends Model
             ->limit($page*$pageSize)
             ->get();
     }
+
+    public static function timeList($where){
+
+       return Anime::select("latestName","id","name","newUpdateAt","weekday","coverSmallImg")
+            ->where($where)
+            ->get();
+    }
 }

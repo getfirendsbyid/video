@@ -14,9 +14,13 @@ namespace App\Controller;
 
 
 
-class VideoController extends BaseController
-{
-    public function getAnime(){
+use App\Model\Anime;
+use Hyperf\HttpServer\Contract\RequestInterface;
 
+class AnimeController extends BaseController
+{
+    public function info(RequestInterface  $request){
+        $request->input("id");
+        $res = Anime::
     }
 }
