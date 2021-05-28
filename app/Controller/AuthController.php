@@ -23,7 +23,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\SimpleCache\InvalidArgumentException;
 
 
-class AuthController extends AbstractController
+class AuthController extends BaseController
 {
 
 //    private  $captchaFactory;

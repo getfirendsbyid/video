@@ -12,6 +12,7 @@ declare(strict_types=1);
 use Hyperf\HttpServer\Router\Router;
 use App\Controller\AuthController;
 use App\Controller\IndexController;
+use App\Controller\ClassifyController;
 use App\Middleware\Auth\JwtMiddleware;
 
 Router::addRoute(['GET', 'POST', 'HEAD'], '/', 'App\Controller\IndexController@index');
@@ -19,15 +20,25 @@ Router::addRoute(['GET', 'POST', 'HEAD'], '/', 'App\Controller\IndexController@i
 Router::get('/favicon.ico', function () {
     return '';
 });
+
 Router::post('/login', [AuthController::class, 'login']);
 Router::post('/register', [AuthController::class, 'register']);
 Router::post('/list', [AuthController::class, 'list']);
 Router::get('/captcha', [AuthController::class, 'captcha']);//获取验证码
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Router::get('/test', [AuthController::class, 'test']);//获取验证码
 =======
 Router::get('/test', [IndexController::class, 'index']);
+=======
+Router::post('/home/banner', [IndexController::class, 'banner']);
+Router::post('/home/videoList', [IndexController::class, 'videoList']);
+
+
+Router::post('/classify/getTag', [ClassifyController::class, 'getTag']);
+
+>>>>>>> 22659ed86263e37e58a8acfb33c34a7cd8a209cb
 
 
 >>>>>>> 6f1b2a718c28f8f808b1a87d8c3fbb9021fccf3a

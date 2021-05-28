@@ -11,12 +11,19 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use App\Model\AnimeSeries;
+use App\Model\Banner;
+use App\Model\RelAnimeSeries;
+use App\Spider\Downloader\FiveDM\Anime;
 
-
-
-class VideoController extends BaseController
+class TimeController extends BaseController
 {
-    public function getAnime(){
+
+    public function timeList(): \Psr\Http\Message\ResponseInterface
+    {
 
     }
+
+
+
 }
