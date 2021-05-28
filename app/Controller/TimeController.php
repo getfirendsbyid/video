@@ -16,7 +16,7 @@ use App\Model\AnimeSeries;
 use App\Model\Banner;
 use App\Model\RelAnimeSeries;
 
-class TimeController extends AbstractController
+class TimeController extends BaseController
 {
 
     public function timeList(): \Psr\Http\Message\ResponseInterface
@@ -45,6 +45,9 @@ class TimeController extends AbstractController
         return $this->success("获取成功",$res);
     }
 
+    public function getOrderIndex(){
+
+    }
 
 
 }

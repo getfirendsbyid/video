@@ -27,6 +27,16 @@ class Anime extends Model
      */
     protected $casts = [];
 
+    public static function videoList($page,$pageSize,$where): \Hyperf\Utils\Collection
+    {
+        return Anime::leftJoin("rel_anime_tag","anime.id","=","rel_anime_tag.animeId")
+            ->leftJoin("tag","tag.id","=","rel_anime_tag.tagId")
+            ->where($where)
+            ->take($page)
+            ->limit($page*$pageSize)
+            ->get();
+    }
+
     public static function timeList($where){
 
        return Anime::select("latestName","id","name","newUpdateAt","weekday","coverSmallImg")

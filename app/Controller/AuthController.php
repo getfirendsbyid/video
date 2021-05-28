@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 use App\Logic\AuthLogic;
-use App\Model\VUser;
+use App\Model\Users;
 use App\Request\Auth\LoginRequest;
 use App\Request\Auth\RegisterRequest;
 use Hyperf\Redis\Redis;
@@ -22,7 +22,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\SimpleCache\InvalidArgumentException;
 
 
-class AuthController extends AbstractController
+class AuthController extends BaseController
 {
 
 //    private  $captchaFactory;
@@ -80,7 +80,7 @@ class AuthController extends AbstractController
             return $this->error(400,"两次密码不一致");
         }
         //验证是否已经被注册
-        $count = VUser::where(['username'=>$username])->count();
+        $count = Users::where(['username'=>$username])->count();
         if ($count>0){
             return $this->error(400,"该用户名已经被使用");
         }
@@ -92,7 +92,7 @@ class AuthController extends AbstractController
             "updatedAt"=>date("Y-m-d H:i:s"),
             "avatar"=>"/img/avatar.jpg",
         ];
-        VUser::insert($data);
+        Users::insert($data);
         return $this->success("注册成功！");
     }
 
@@ -110,6 +110,18 @@ class AuthController extends AbstractController
             'ttl' => $captcha->getTtl(),
         ];
         return $this->success("验证码获取成功",$response);
+    }
+
+
+    public function test(){
+        $statr = time();
+        $url = "https://www.uviewui.com/components/swiper.html";
+        $client = new \GuzzleHttp\Client();
+        for ($i=0;$i<500;$i++){
+            $res = $client->request("get",$url);
+            echo $i;
+        }
+        echo "结束".(time()-$statr);
     }
 
 }

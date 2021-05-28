@@ -26,4 +26,12 @@ class RelAnimeSeries extends Model
      * @var array
      */
     protected $casts = [];
+
+    public static function seriesList(): \Hyperf\Utils\Collection
+    {
+        return RelAnimeSeries::leftJoin("anime","rel_anime_series.animeId","anime.id")
+            ->leftJoin("anime_series","rel_anime_series.seriesId","anime_series.id")
+            ->select('anime.id','anime.name as title','anime.coverSmallImg as src',"rel_anime_series.seriesId")
+            ->get();
+    }
 }

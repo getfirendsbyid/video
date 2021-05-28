@@ -21,8 +21,9 @@ use App\Model\AnimeYear;
 use App\Model\Banner;
 use App\Model\RelAnimeSeries;
 use App\Spider\Downloader\FiveDM\Anime;
+use Hyperf\HttpServer\Contract\RequestInterface;
 
-class ClassifyController extends AbstractController
+class ClassifyController extends BaseController
 {
 
     public function getTag(): \Psr\Http\Message\ResponseInterface
@@ -48,10 +49,27 @@ class ClassifyController extends AbstractController
         return $this->success("获取成功",$data);
     }
 
-    public function getVideoList(){
-
+    public function videoList(RequestInterface $request): \Psr\Http\Message\ResponseInterface
+    {
+        $areaId = $request->input("areaId",null);
+        $letterId = $request->input("letterId",null);
+        $seasonId = $request->input("seasonId",null);
+        $tagId = $request->input("tagId",null);
+        $typeId = $request->input("typeId",null);
+        $yearId = $request->input("yearId",null);
+        $page = $request->input("page",null);
+        $pageSize = $request->input("pageSize",null);
+        $pageSize>30?30:$pageSize;
+        $where = [
+            "anime_area.id"=>$areaId,
+            "anime_letter.id"=>$letterId,
+            "anime_season.id"=>$seasonId,
+            "anime_tag.id"=>$tagId,
+            "anime_type.id"=>$typeId,
+            "anime_year_id"=>$yearId,
+        ];
+        $res =  \App\Model\Anime::videoList($page,$pageSize,$where);
+        return $this->success("请求成功",$res);
     }
-
-
 
 }

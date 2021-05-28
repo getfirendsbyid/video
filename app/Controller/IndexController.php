@@ -16,12 +16,13 @@ use App\Model\Banner;
 use App\Model\RelAnimeSeries;
 use App\Spider\Downloader\FiveDM\Anime;
 
-class IndexController extends AbstractController
+class IndexController extends BaseController
 {
     public function index()
     {
+
         Anime::get();
-//        $this->success("1");
+
     }
 
     public function banner(): \Psr\Http\Message\ResponseInterface
@@ -34,10 +35,7 @@ class IndexController extends AbstractController
     public function videoList(): \Psr\Http\Message\ResponseInterface
     {
         $series = AnimeSeries::all();
-        $animeData = RelAnimeSeries::leftJoin("anime","rel_anime_series.animeId","anime.id")
-            ->leftJoin("anime_series","rel_anime_series.seriesId","anime_series.id")
-            ->select('anime.id','anime.name as title','anime.coverSmallImg as src',"rel_anime_series.seriesId")
-            ->get();
+        $animeData = RelAnimeSeries::seriesList();
         $data = [];
         foreach ($series as $seriesKey=>$seriesValue){
             foreach ($animeData as $animeValue)

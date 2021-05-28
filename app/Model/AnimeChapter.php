@@ -26,4 +26,9 @@ class AnimeChapter extends Model
      * @var array
      */
     protected $casts = [];
+
+    public static function getChapterList($where)
+    {
+        return AnimeChapter::where($where)->get();
+    }
 }
